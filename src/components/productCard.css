@@ -1,0 +1,68 @@
+.card {
+  width: 250px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0 16px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  margin: 6px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addToCard {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.addToCard:hover {
+  background-color: #ec971f;
+}
+
+.buyNow {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.buyNow:hover {
+  background-color: #4cae4c;
+}
