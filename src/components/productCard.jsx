@@ -1,5 +1,5 @@
 import "./productCard.css";
-
+/*
 export default function ProductCard() {
   return (
     <div className="card">
@@ -11,4 +11,4 @@ export default function ProductCard() {
       <button className="buyNow">Buy Now</button>
     </div>
   );
-}
+}*/
