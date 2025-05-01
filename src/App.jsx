@@ -1,21 +1,23 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 
-import Header from "./components/header";
-import ProductCard from "./components/productCard";
+import HomePage from "./pages/home";
+import LoginPage from "./pages/login";
+import SignUpPage from "./pages/signup";
 
 function App() {
   return (
-    <div className="w-full h-screen bg-red-100 flex flex-col justify-center items-center">
-      <div className="w-[650px] h-[650px] bg-red-900 flex flex-col justify-center items-center">
-        <div className="w-[600px] h-[600px] bg-green-600 flex flex-col justify-center items-center">
-          <div className="w-[100px] h-[100px] bg-red-600"></div>
-          <div className="w-[100px] h-[100px] bg-blue-600 fixed"></div>
-          <div className="w-[100px] h-[100px] bg-pink-600"></div>
-          <div className="w-[100px] h-[100px] bg-yellow-400"></div>
-          <div className="w-[100px] h-[100px] bg-orange-500"></div>
-        </div>
+    <BrowserRouter>
+      <div></div>
+
+      <div>
+        <Routes path="/*">
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
