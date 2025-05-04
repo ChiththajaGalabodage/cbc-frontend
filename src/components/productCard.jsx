@@ -1,6 +1,4 @@
-import "./productCard.css";
-/*
-export default function ProductCard() {
+export default function ProductCard(props) {
   return (
     <div className="card">
       <img className="productImage" src={props.picture} />
@@ -11,4 +9,4 @@ export default function ProductCard() {
       <button className="buyNow">Buy Now</button>
     </div>
   );
-}*/
+}
