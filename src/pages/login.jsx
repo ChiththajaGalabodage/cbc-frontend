@@ -9,7 +9,7 @@ export default function LoginPage() {
   async function handleLogin() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/login",
+        import.meta.env.VITE_BACKEND_URL + "/api/users/login",
         {
           email: email,
           password: password,
@@ -28,7 +28,7 @@ export default function LoginPage() {
     <div className="w-full h-screen bg-[url('/login.jpg')] bg-center bg-cover flex  justify-evenly items-center">
       <div className="w-[50%] h-full "></div>
       <div classNae="w-[50%] h-full flex justify-center items-center">
-        <div className="w-[500px] h-[600px] backdrop-blure-md rounded-[20px] shadow-xl flex flex-col justify-center items-center">
+        <div className="w-[500px] h-[600px] backdrop-blur-md rounded-[20px] shadow-xl flex flex-col justify-center items-center">
           <input
             onChange={(e) => {
               setEmail(e.target.value);

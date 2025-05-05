@@ -1,7 +1,7 @@
 export default function HomePage() {
   return (
-    <div className="w-full h-screenbg-red-100 flex flex-col justify-evenly items-center">
-      <h1 className="font-bold text-[300px]  ☐ text-blue-700">
+    <div className="w-full h-screen bg-red-100 flex flex-col justify-evenly items-center">
+      <h1 className="font-bold text-[30px]  ☐ text-blue-700">
         Crystal Beauty Clear
       </h1>
       <p>
