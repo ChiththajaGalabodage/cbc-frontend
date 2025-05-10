@@ -1,55 +1,49 @@
+import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
 export default function TestPage() {
-  const [count, setCount] = useState(0);
-  const [status, setStatus] = useState("Passed");
+  const [image, setImage] = useState(null);
+
+  const url = "https://cschwfhbuvxlegdggmsu.supabase.co";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzY2h3ZmhidXZ4bGVnZGdnbXN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4ODc0MjksImV4cCI6MjA2MjQ2MzQyOX0.tKzAshkDhdz9LODu4iXW9DJCQK3FeY3bZTjLcZY6kmU";
+
+  const supabase = createClient(url, key);
+
+  function fileUpload() {
+    supabase.storage
+      .from("images")
+      .upload(image.name, image, {
+        upsert: false,
+        cacheControl: "3600",
+      })
+      .then(() => {
+        const publicUrl = supabase.storage
+          .from("images")
+          .getPublicUrl(image.name).data.publicUrl;
+        console.log(publicUrl);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 
   return (
     <div className="w-full h-screen  flex justify-center items-center">
-      <div className="w-[450px] h-[250px] shadow flex justify-center items-center">
-        <button
-          onClick={() => {
-            setCount(count - 1);
-          }}
-          className="bg-blue-600 text-white font-bold text-center w-[100px] h-[40px] mx-[20px] cusor-pointer"
-        >
-          -
-        </button>
-        <span className="text-[40px] font-bold tex-center w-[100px] h-[40px] mx-[10px] flex justify-center item-center">
-          {count}
-        </span>
-        <button
-          onClick={() => {
-            setCount(count + 1);
-          }}
-          className="bg-blue-600 text-white font-bold text-center w-[100px] h-[40px] text-[20px] cusor-pointer"
-        >
-          +
-        </button>
-      </div>
-      <div className="w-[450px] h-[250px] shadow flex flex-col justify-center item-center">
-        <span className="text-[40px] font-bold text-center w-[100px] h-[40px] mx-[10px] flex justify-center item-center">
-          {status}
-        </span>
-        <div>
-          <button
-            className="bg-blue-600 text-white font-bold text-center w-[100px] h-[40px] text-[20px] cursor-pointer m-[20px]"
-            onClick={() => {
-              setStatus("Passed");
-            }}
-          >
-            Passed
-          </button>
-          <button
-            className="bg-blue-600 text-white font-bold text-center w-[100px] h-[40px] text-[20px] cursor-pointer m-[20px]"
-            onClick={() => {
-              setStatus("Failed");
-            }}
-          >
-            Failed
-          </button>
-        </div>
-      </div>
+      <input
+        type="file"
+        className="file-input file-input-bordered w-full max-w-xs"
+        onChange={(e) => {
+          setImage(e.target.files[0]);
+        }}
+      />
+
+      <button
+        onClick={fileUpload}
+        className="bg-green-500 text-white font-bold py-2 px-4 rounded"
+      >
+        Upload
+      </button>
     </div>
   );
 }
