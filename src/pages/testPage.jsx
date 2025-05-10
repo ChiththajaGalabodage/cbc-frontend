@@ -1,30 +1,16 @@
-import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
+import mediaUpload from "../utils/mediaUpload";
 
 export default function TestPage() {
   const [image, setImage] = useState(null);
 
-  const url = "https://cschwfhbuvxlegdggmsu.supabase.co";
-  const key =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzY2h3ZmhidXZ4bGVnZGdnbXN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4ODc0MjksImV4cCI6MjA2MjQ2MzQyOX0.tKzAshkDhdz9LODu4iXW9DJCQK3FeY3bZTjLcZY6kmU";
-
-  const supabase = createClient(url, key);
-
   function fileUpload() {
-    supabase.storage
-      .from("images")
-      .upload(image.name, image, {
-        upsert: false,
-        cacheControl: "3600",
+    mediaUpload(image)
+      .then((res) => {
+        console.log(res);
       })
-      .then(() => {
-        const publicUrl = supabase.storage
-          .from("images")
-          .getPublicUrl(image.name).data.publicUrl;
-        console.log(publicUrl);
-      })
-      .catch((e) => {
-        console.log(e);
+      .catch((res) => {
+        console.log(res);
       });
   }
 
