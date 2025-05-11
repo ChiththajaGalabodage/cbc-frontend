@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
 import { sampleProducts } from "../../assets/sampleData";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState(sampleProducts);
 
   useEffect(() => {
-    axios
-      .get(import.meta.env.VITE_BACKEND_URL + "/api/products")
-      .then((res) => {
-        console.log(res.data);
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/products`
+        );
         setProducts(res.data);
-      });
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   return (
-    <div className="w-full h-full  max-h-full overflow-y-scroll">
+    <div className="w-full h-full max-h-full overflow-y-scroll bg-red-900 relative">
+      <Link
+        to="/admin/add-product"
+        className="absolute text-xl cursor-pointer bottom-5 right-5 bg-green-500 p-2 text-white font-bold py-2 px-4 rounded text-center flex-center items-center"
+      >
+        +
+      </Link>
       <table className="w-full text-center">
         <thead>
           <tr>
@@ -34,7 +47,7 @@ export default function AdminProductsPage() {
                 <td>{item.productId}</td>
                 <td>{item.name}</td>
                 <td>
-                  <img src={item.images[0]} className="w-[50px] h-[50px]" />
+                  <img src={item.image[0]} className="w-[50px] h-[50px]" />
                 </td>
                 <td>{item.labelledPrice}</td>
                 <td>{item.price}</td>
