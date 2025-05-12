@@ -7,6 +7,7 @@ import RegisterPage from "./pages/register";
 import AdminPage from "./pages/adminPage";
 import TestPage from "./pages/testPage";
 import { Toaster } from "react-hot-toast";
+import AddProductPage from "./pages/admin/addProductPage";
 
 function App() {
   return (
