@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { sampleProducts } from "../../assets/sampleData";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState(sampleProducts);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,7 +24,7 @@ export default function AdminProductsPage() {
   }, []);
 
   return (
-    <div className="w-full h-full max-h-full overflow-y-scroll bg-red-900 relative">
+    <div className="w-full h-full max-h-full overflow-y-scroll relative">
       <Link
         to="/admin/add-product"
         className="absolute text-xl cursor-pointer bottom-5 right-5 bg-green-500 p-2 text-white font-bold py-2 px-4 rounded text-center flex-center items-center"
@@ -38,6 +40,7 @@ export default function AdminProductsPage() {
             <th>Labelled Price</th>
             <th>Price</th>
             <th>Stock</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +55,19 @@ export default function AdminProductsPage() {
                 <td>{item.labelledPrice}</td>
                 <td>{item.price}</td>
                 <td>{item.stock}</td>
+                <td>
+                  <div className="flex justify-center items-center w-full">
+                    <FaTrash className="text-[20px] text-red-500 mx-2 cursor-pointer" />
+                    <FaEdit
+                      onClick={() => {
+                        navigate("/admin/edit-product", {
+                          state: item,
+                        });
+                      }}
+                      className="text-[20px] text-blue-500 mx-2 cursor-pointer"
+                    />
+                  </div>
+                </td>
               </tr>
             );
           })}
