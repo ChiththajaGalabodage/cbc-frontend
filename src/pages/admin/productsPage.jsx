@@ -16,7 +16,7 @@ export default function AdminProductsPage() {
         .then((res) => {
           console.log(res.data);
           setProducts(res.data);
-          setIsLoading(false);
+          // setIsLoading(false);
         });
     }
   }, [isLoading]);
@@ -51,7 +51,11 @@ export default function AdminProductsPage() {
         +
       </Link>
 
-      {!isLoading && (
+      {isLoading ? (
+        <div className="w-full h-full flex justify-center items-center">
+          <div className="w-[70px] h-[70px] border-[5px] border-gray-300 border-t-blue-900 rounded-full animate-spin"></div>
+        </div>
+      ) : (
         <table className="w-full text-center">
           <thead>
             <tr>
