@@ -75,7 +75,7 @@ export default function AddProductPage() {
         name: name,
         altNames: altNamesArray,
         description: description,
-        images: imageUrls,
+        image: imageUrls,
         labelledPrice: labelledPrice,
         price: price,
         stock: stock,
