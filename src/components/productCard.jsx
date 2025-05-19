@@ -3,9 +3,9 @@ export default function ProductCard({ product }) {
     <div className="w-[300px] h-[450px] bg-white shadow-lg rounded-lg m-4 overflow-hidden flex flex-col border border-gray-200 hover:shadow-xl transition-shadow duration-300">
       {/* Image */}
       <div className="h-[200px] w-full bg-gray-100 flex items-center justify-center">
-        {product.images && product.images.length > 0 ? (
+        {product.image && product.image.length > 0 ? (
           <img
-            src={product.images[0]}
+            src={product.image[0]}
             alt={product.name}
             className="h-full w-full object-cover"
           />
