@@ -7,6 +7,7 @@ export default function ProductOverviewPage() {
   const params = useParams();
   const productId = params.id;
   const [status, setStatus] = useState("loading"); //loading , success , error
+  console.log(status);
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -23,5 +24,9 @@ export default function ProductOverviewPage() {
         toast.error("Error fetching product details");
       });
   }, []);
-  return <div>This is overview page for product {JSON.stringify(product)}</div>;
+  return (
+    <div className="bg-secondary font-main">
+      This is overview page for product {JSON.stringify(product)}
+    </div>
+  );
 }
