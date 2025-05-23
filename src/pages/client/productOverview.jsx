@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import ImageSlider from "../../components/imageSlider";
+import Loading from "../../components/loading";
 
 export default function ProductOverviewPage() {
   const params = useParams();
@@ -25,8 +27,16 @@ export default function ProductOverviewPage() {
       });
   }, []);
   return (
-    <div className="bg-secondary font-main">
-      This is overview page for product {JSON.stringify(product)}
-    </div>
+    <>
+      {status == "success" && (
+        <div className="w-full h-full flex">
+          <div className="w-[50%] h-full flex justify-center items-center">
+            <ImageSlider images={product.image} />
+          </div>
+          <div className="w-[50%] bg-blue-900 h-full"></div>
+        </div>
+      )}
+      {status == "loading" && <Loading />}
+    </>
   );
 }
