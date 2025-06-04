@@ -37,7 +37,7 @@ export function addToCart(product, qty) {
       quantity: qty,
     };
   } else {
-    const newQty = cart[index].quantity + qty;
+    const newQty = cart[index].qty + qty;
     if (newQty <= 0) {
       removeFromCart(product.productId);
       return;
