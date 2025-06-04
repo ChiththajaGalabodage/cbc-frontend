@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ImageSlider from "../../components/imageSlider";
 import Loading from "../../components/loading";
 import { addToCart, getCart } from "../../utils/cart";
@@ -10,8 +10,8 @@ export default function ProductOverviewPage() {
   const params = useParams();
   const productId = params.id;
   const [status, setStatus] = useState("loading"); //loading , success , error
-  console.log(status);
   const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -83,7 +83,25 @@ export default function ProductOverviewPage() {
                 >
                   Add to Cart
                 </button>
-                <button className="w-[200px] h-[50px] mx-4 cursor-pointer bg-accent text-white rounded-2xl hover:bg-accent/80 transition-all duration-300">
+                <button
+                  className="w-[200px] h-[50px] mx-4 cursor-pointer bg-accent text-white rounded-2xl hover:bg-accent/80 transition-all duration-300"
+                  onClick={() => {
+                    navigate("*/checkout", {
+                      state: {
+                        cart: [
+                          {
+                            productId: product.productId,
+                            name: product.name,
+                            image: product.images[0],
+                            price: product.price,
+                            labelledPrice: product.labelledPrice,
+                            qty: 1,
+                          },
+                        ],
+                      },
+                    });
+                  }}
+                >
                   Buy Now
                 </button>
               </div>

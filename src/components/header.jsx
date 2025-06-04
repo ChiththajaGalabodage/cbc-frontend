@@ -29,10 +29,13 @@ export default function Header() {
           Contact
         </Link>
       </div>
-      <div className="w-[80px] flex justify-center items-center">
-        <Link to="/cart" className=" text-[20px] font-bold mx-2">
-          <BsCart3 />
-        </Link>
+      <div className="w-[80px] bg-blue-600">
+        Add commentMore actions
+        <div className="w-[80px] flex justify-center items-center">
+          <Link to="/cart" className="text-[20px] font-bold mx-2">
+            <BsCart3 />
+          </Link>
+        </div>
       </div>
     </header>
   );
