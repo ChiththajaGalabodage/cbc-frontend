@@ -73,7 +73,7 @@ export default function EditProductPage() {
     }
   }
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center bg-green-800">
+    <div className="w-full h-full flex flex-col justify-center items-center">
       <h1 className="text 3xl font-bold mb-4">Edit Product</h1>
       <input
         type="text"
