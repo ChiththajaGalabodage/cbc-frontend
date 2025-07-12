@@ -11,8 +11,10 @@ import AddProductPage from "./pages/admin/addProductPage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
+  const ClientId =
+    "454704357887-cirshapfhvtvve3en4q0svo5q53kbcec.apps.googleusercontent.com";
   return (
-    <GoogleOAuthProvider clientId="454704357887-cirshapfhvtvve3en4q0svo5q53kbcec.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={ClientId}>
       <BrowserRouter>
         <div>
           <Toaster position="top-right" />
