@@ -12,7 +12,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId="454704357887-cirshapfhvtvve3en4q0svo5q53kbcec.apps.googleusercontent.com">
       <BrowserRouter>
         <div>
           <Toaster position="top-right" />

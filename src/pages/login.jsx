@@ -18,7 +18,14 @@ export default function LoginPage() {
           accessToken: accessToken,
         })
         .then((response) => {
-          console.log(response);
+          toast.success("Login Successful");
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          if (response.data.role === "admin") {
+            navigate("/admin/");
+          } else {
+            navigate("/");
+          }
         });
     },
   });
