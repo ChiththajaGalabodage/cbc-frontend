@@ -80,3 +80,54 @@ export const sampleProducts = [
     __v: 0,
   },
 ];
+
+export const sampleUsers = [
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+  {
+    email: "malith@gmail.com",
+    firstName: "Malith",
+    lastName: "Dilshan",
+    role: "admin",
+    img: "https://avatar.iran.liara.run/public/boy?username=Ash",
+    phone: 1745244793,
+  },
+];
