@@ -3,21 +3,30 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { sampleUsers } from "../../assets/sampleData";
 import toast from "react-hot-toast";
 import axios from "axios";
+
 export default function AdminProductsPage() {
-  const [products, setUsers] = useState(sampleUsers);
+  const [users, setUsers] = useState(sampleUsers);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isLoading) {
+      const token = localStorage.getItem("token");
+
       axios
-        .get(import.meta.env.VITE_BACKEND_URL + "/api/users")
-        .then((res) => {
-          setUsers(res.data);
-          setIsLoading(false);
+        .get(import.meta.env.VITE_BACKEND_URL + "/api/users/gau/", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
         })
-        .catch(() => {
+        .then((res) => {
+          setUsers(res.data); // ✅ use API response
+          setIsLoading(false);
+          console.log("API Users Response:", res.data);
+        })
+        .catch((error) => {
           toast.error("Failed to load users");
           setIsLoading(false);
+          console.error("User Fetch Error:", error);
         });
     }
   }, [isLoading]);
@@ -37,27 +46,29 @@ export default function AdminProductsPage() {
           </tr>
         </thead>
         <tbody>
-          {products.map((item, index) => (
+          {(Array.isArray(users) ? users : []).map((item, index) => (
             <tr
               key={index}
               className={`${
                 index % 2 === 0 ? "bg-[var(--color-primary)]" : "bg-gray-100"
               } hover:bg-gray-200 transition`}
             >
-              <td className="py-2 px-2">{index}</td>
+              <td className="py-2 px-2">{index + 1}</td>
               <td className="py-2 px-2">{item.firstName}</td>
               <td className="py-2 px-2">{item.lastName}</td>
               <td className="py-2 px-2">{item.email}</td>
               <td className="py-2 px-2">
                 <img
-                  src={item.img[0]}
-                  alt={item.name}
+                  src={item.img?.[0] || "/default-avatar.png"} // ✅ safe check
+                  alt={item.firstName}
                   className="w-12 h-12 object-cover rounded"
                 />
               </td>
-
-              <td className="py-2 px-2">{item.phone}</td>
-              <td className="py-2 px-2">{item.stock}</td>
+              <td className="py-2 px-2">{item.phone || "N/A"}</td>
+              <td className="py-2 px-2 flex justify-center gap-2">
+                <FaEdit className="cursor-pointer text-blue-600" />
+                <FaTrash className="cursor-pointer text-red-600" />
+              </td>
             </tr>
           ))}
         </tbody>

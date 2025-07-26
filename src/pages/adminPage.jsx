@@ -62,7 +62,7 @@ export default function AdminPage() {
             <Link className={getClass("products")} to="/admin/products">
               Products
             </Link>
-            <Link className={getClass("users")} to="/admin/users">
+            <Link className={getClass("users")} to="/admin/users/gau">
               Users
             </Link>
             <Link className={getClass("orders")} to="/admin/orders">
@@ -76,7 +76,7 @@ export default function AdminPage() {
           <div className="h-full w-[calc(100%-300px)]  border-accent border-4 rounded-xl bg-white">
             <Routes path="/*">
               <Route path="/products" element={<AdminProductsPage />} />
-              <Route path="/users" element={<AdminUsersPage />} />
+              <Route path="/users/gau/" element={<AdminUsersPage />} />
               <Route path="/orders" element={<AdminOrdersPage />} />
               <Route path="/reviews" element={<h1>Reviews</h1>} />
               <Route path="/add-product" element={<AddProductPage />} />
