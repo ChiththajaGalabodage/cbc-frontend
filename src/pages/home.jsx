@@ -7,6 +7,7 @@ import CheckoutPage from "./client/checkOut";
 import SearchProductPage from "./client/searchProducts";
 import ContactUsPage from "./client/contactUsPage";
 import AboutUsPage from "./client/aboutUsPage";
+import HomeUsPage from "./homeUsPage";
 
 export default function HomePage() {
   return (
@@ -15,7 +16,7 @@ export default function HomePage() {
 
       <div className="w-full h-[calc(100vh-80px)]  flex flex-col items-center">
         <Routes path="/*">
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<HomeUsPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
