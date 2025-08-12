@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 export default function AdminProductsPage() {
   const [products, setProducts] = useState(sampleProducts);
   const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {

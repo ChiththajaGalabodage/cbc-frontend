@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import UserData from "./userData";
+//import UserData from "./userData";
 import { BsCart3 } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
@@ -36,6 +36,9 @@ export default function Header() {
         </Link>
         <Link to="/contact" className=" text-[20px] font-bold mx-2">
           Contact
+        </Link>
+        <Link to="/search" className=" text-[20px] font-bold mx-2">
+          Search
         </Link>
       </div>
 
@@ -76,6 +79,7 @@ export default function Header() {
               <a href="/contact" className="text-[20px] font-bold mx-2 my-4">
                 Contact
               </a>
+
               <a href="/cart" className="text-[20px] font-bold mx-2 my-4">
                 <BsCart3 />
               </a>

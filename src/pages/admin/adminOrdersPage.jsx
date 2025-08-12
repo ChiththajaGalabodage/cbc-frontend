@@ -32,6 +32,7 @@ export default function AdminOrdersPage() {
             "Error fetching orders: " +
               (e.response?.data?.message || "Unknown error")
           );
+          console.log(e);
           setIsLoading(false);
         });
     }
