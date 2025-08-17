@@ -22,7 +22,7 @@ export default function Header() {
         }}
         src="/logo.png"
         alt="Logo"
-        className="w-[80px] h-[80px] object-cover cursor-pointer"
+        className="mx-10 w-[110px] h-[80px] object-cover cursor-pointer"
       />
       <div className="w-[calc(100%-160px)] h-full  hidden md:flex justify-center items-center">
         <Link to="/" className=" text-[20px] font-bold mx-2">
