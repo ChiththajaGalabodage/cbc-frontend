@@ -10,7 +10,6 @@ export default function HomeUsPage() {
           tradition and trend.
         </p>
       </section>
-
       {/* Features Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
         <div className="border rounded-2xl p-6 shadow hover:shadow-lg transition">
@@ -31,7 +30,6 @@ export default function HomeUsPage() {
           </p>
         </div>
       </section>
-
       {/* About Short Section */}
       <section className="text-center bg-gray-100 p-10 rounded-2xl mb-20">
         <h2 className="text-3xl font-bold mb-4">About CBC</h2>
@@ -41,7 +39,6 @@ export default function HomeUsPage() {
           real-time customization and top-notch support.
         </p>
       </section>
-
       {/* Contact Section */}
       <section className="bg-white rounded-2xl p-6 border shadow-md max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold mb-6 text-center">Get in Touch</h2>

@@ -41,6 +41,20 @@ export default function Header() {
           Search
         </Link>
       </div>
+      <div className="flex items-center justify-center">
+        <Link
+          to="/login"
+          className="px-6 py-2 h-[40px] rounded-2xl bg-gradient-to-r from-gray-700 to-gray-800 text-white font-medium hover:shadow-md transition cursor-pointer"
+        >
+          Login
+        </Link>
+        <Link
+          to="/signup"
+          className="ml-3 px-6 py-2 h-[40px] rounded-2xl border border-gray-700 text-gray-700 font-medium hover:bg-gray-700 hover:text-white transition cursor-pointer"
+        >
+          SignUp
+        </Link>
+      </div>
 
       <div className="w-[80px] hidden md:flex justify-center items-center">
         <Link to="/cart" className="text-[20px] font-bold mx-2">
