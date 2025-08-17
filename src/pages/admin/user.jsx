@@ -40,9 +40,6 @@ export default function AdminProductsPage() {
             <th className="py-3 px-2">First Name</th>
             <th className="py-3 px-2">Last Name</th>
             <th className="py-3 px-2">Email</th>
-            <th className="py-3 px-2">Image</th>
-            <th className="py-3 px-2">Phone</th>
-            <th className="py-3 px-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -57,18 +54,6 @@ export default function AdminProductsPage() {
               <td className="py-2 px-2">{item.firstName}</td>
               <td className="py-2 px-2">{item.lastName}</td>
               <td className="py-2 px-2">{item.email}</td>
-              <td className="py-2 px-2">
-                <img
-                  src={item.img?.[0] || "/default-avatar.png"} // ✅ safe check
-                  alt={item.firstName}
-                  className="w-12 h-12 object-cover rounded"
-                />
-              </td>
-              <td className="py-2 px-2">{item.phone || "N/A"}</td>
-              <td className="py-2 px-2 flex justify-center gap-2">
-                <FaEdit className="cursor-pointer text-blue-600" />
-                <FaTrash className="cursor-pointer text-red-600" />
-              </td>
             </tr>
           ))}
         </tbody>
