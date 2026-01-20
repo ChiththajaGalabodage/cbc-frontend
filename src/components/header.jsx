@@ -20,7 +20,6 @@ export default function Header() {
         onClick={() => {
           navigate("/");
         }}
-        src="/logo.png"
         alt="Logo"
         className="mx-10 w-[110px] h-[80px] object-cover cursor-pointer"
       />
